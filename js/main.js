@@ -1,62 +1,60 @@
-const pokemonName = document.querySelector('.pokemon__name');
-const pokemonNumber = document.querySelector('.pokemon__number');
-const pokemonImage = document.querySelector('.pokemon__image');
+const pokemonName = document.querySelector(".pokemon__name");
+const pokemonNumber = document.querySelector(".pokemon__number");
+const pokemonImage = document.querySelector(".pokemon__image");
 
-const form = document.querySelector('.form');
-const input = document.querySelector('.input__search');
-const buttonPrev = document.querySelector('.btn-prev');
-const buttonNext = document.querySelector('.btn-next');
+const form = document.querySelector(".form");
+const input = document.querySelector(".input__search");
+const buttonPrev = document.querySelector(".btn-prev");
+const buttonNext = document.querySelector(".btn-next");
 
 let searchPokemon = 25;
 
-const fetchPokemon = async(pokemon) => {
-    const APIResponse = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${pokemon}`);
-    if (APIResponse.status === 200) {
-        const data = await APIResponse.json();
-        return data;
-    }
+const fetchPokemon = async (pokemon) => {
+  const APIResponse = await fetch(
+    `https://pokeapi.co/api/v2/pokemon/${pokemon}`
+  );
+  if (APIResponse.status === 200) {
+    const data = await APIResponse.json();
+    return data;
+  }
 };
 
+const renderPokemon = async (pokemon) => {
+  pokemonName.innerHTML = "Loading...";
+  pokemonNumber.innerHTML = "data.id";
 
-const renderPokemon = async(pokemon) => {
-    pokemonName.innerHTML = 'Loading...';
-    pokemonNumber.innerHTML = 'data.id';
-
-    const data = await fetchPokemon(pokemon);
-    if (data) {
-        pokemonImage.style.display = 'block';
-        pokemonName.innerHTML = data.name;
-        pokemonNumber.innerHTML = data.id;
-        pokemonImage.src =
-            data['sprites']['versions']['generation-v']['black-white']['animated'][
-                'front-default'
-            ];
-        input.value = "";
-        searchPokemon = date.id;
-    } else {
-        pokemonImage.style.display = 'none';
-        pokemonName.innerHTML = 'Not Found :C';
-        pokemonNumber.innerHTML = 'Not Found :C';
-    }
+  const data = await fetchPokemon(pokemon);
+  if (data) {
+    pokemonImage.style.display = "block";
+    pokemonName.innerHTML = data.name;
+    pokemonNumber.innerHTML = data.id;
+    pokemonImage.src =
+      data["sprites"]["versions"]["generation-v"]["black-white"]["animated"][
+        "front-default"
+      ];
+    input.value = "";
+    searchPokemon = data.id;
+  } else {
+    pokemonImage.style.display = "none";
+    pokemonName.innerHTML = "Not Found :C";
+    pokemonNumber.innerHTML = "Not Found :C";
+  }
 };
 
-
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    renderPokemon(input.value.toLowerCase())
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  renderPokemon(input.value.toLowerCase());
 });
 
-
-buttonPrev.addEventListener('click', (event) => {
-    if (searchPokemon > 1) {
-        searchPokemon -= 1;
-        renderPokemon(searchPokemon);
-    }
-});
-buttonNext.addEventListener('click', (event) => {
-    searchPokemon += 1;
+buttonPrev.addEventListener("click", (event) => {
+  if (searchPokemon > 1) {
+    searchPokemon -= 1;
     renderPokemon(searchPokemon);
+  }
+});
+buttonNext.addEventListener("click", (event) => {
+  searchPokemon += 1;
+  renderPokemon(searchPokemon);
 });
 
 renderPokemon(searchPokemon);
