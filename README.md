@@ -1,4 +1,4 @@
-# 🌟 Pokédex
+# 🌟 Pokedex
 
 Un proyecto personal para buscar tu Pokémon favorito.
 
