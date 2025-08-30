@@ -1,17 +1,38 @@
-# Pokedex
+# 🌟 Pokédex
 
-Pokedex is a personal project.
+Un proyecto personal para buscar tu Pokémon favorito.
 
-## What is that?!
+## 🤔 ¿Qué es?
 
-It's a search enging when you can find a favourite pokemon character :)
+Es un buscador donde puedes encontrar información de cualquier Pokémon. Solo escribe su nombre o número y ¡listo!
 
-## How does it work?
+## 🚀 ¿Cómo funciona?
 
-You should rank in the search engine and type number or name of your favorite Pokemon and then press enter, the result will visibility on the pokedex's visor.
+1. 🔍 **Busca**: Escribe el nombre o número del Pokémon
+2. ⏎ **Presiona Enter** 
+3. ✨ **¡Disfruta!** Los resultados aparecen en la pantalla
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## ⚡ Características
 
-Please make sure to update tests as appropriate.
+- 🔢 Búsqueda por nombre o número
+- 📱 Funciona en móvil y computadora  
+- 🎨 Interfaz fácil de usar
 
+## 🛠️ Instalación
+
+```bash
+git clone https://github.com/Malibu54/Pokedex.git
+cd pokedex
+```
+
+## 🤝 ¿Quieres contribuir?
+
+¡Genial! Puedes hacer un pull request o abrir un issue para proponer cambios.
+
+## 📝 Licencia
+
+MIT License
+
+---
+
+⚡ **¡Atrapa información de todos los Pokémon!** ⚡
